@@ -1,7 +1,7 @@
 import os
 
 def get_postgres_url():
-    driver = os.getenv("POSTGRES_DRIVER", "psycopg2")
+    driver = os.getenv("POSTGRES_DRIVER", "asyncpg")
     user = os.getenv("POSTGRES_USER", "postgres")
     password = os.getenv("POSTGRES_PASSWORD", "")
     server = os.getenv("POSTGRES_SERVER", "devices_db")
