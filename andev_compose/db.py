@@ -4,6 +4,9 @@ from sqlalchemy.orm import sessionmaker
 
 from . import config
 
+# Follow for original idea:
+# https://github.com/tiangolo/full-stack-fastapi-postgresql/blob/master/%7B%7Bcookiecutter.project_slug%7D%7D/backend/app/app/db/session.py
+
 REDIS_POOL = aioredis.ConnectionPool.from_url(config.get_redis_url())
 
 PG_ENGINE = create_async_engine(config.get_postgres_url())

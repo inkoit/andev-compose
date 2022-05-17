@@ -7,6 +7,8 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    # It takes time for PostgreSQL to run and thus be able to accept connections.
+    # So we need to make sure it's workable before we start the web app
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -18,6 +20,8 @@ services:
 
   web:
     build: .
+    # I also run alembic migrations before running the app.
+    # That makes development deployment immediate
     command: bash -c "alembic upgrade head && uvicorn andev_compose.main:app --host 0.0.0.0 --port 8000 --reload"
     volumes:
       - .:/code
