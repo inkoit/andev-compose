@@ -42,7 +42,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = get_postgres_url()
+    url = get_postgres_url(driver="psycopg2")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -62,7 +62,7 @@ def run_migrations_online():
 
     """
     configuration = config.get_section(config.config_ini_section)
-    configuration["sqlalchemy.url"] = get_postgres_url()
+    configuration["sqlalchemy.url"] = get_postgres_url(driver="psycopg2")
     connectable = engine_from_config(
         configuration,
         prefix="sqlalchemy.",
