@@ -7,7 +7,7 @@ authors = ["Nikita Subbotin <sub.nik.and@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 pydantic = "^1.9.0"
-fastapi = "^0.78.0"
+fastapi = "^0.109.1"
 uvicorn = "^0.17.6"
 aioredis = "^2.0.1"
 SQLAlchemy = "^1.4.36"
